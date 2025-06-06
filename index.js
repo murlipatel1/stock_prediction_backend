@@ -9,7 +9,10 @@ const port = process.env.PORT || 5000
 connectToMongo();
 
 app.use(express.json())
-app.use(cors())
+// all origins
+app.use(cors({
+    origin: '*'
+}))
 app.use("/api/auth",require("./routes/auth"))
 app.use("/api/stocks",require("./routes/stockOps"))
 
